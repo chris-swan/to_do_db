@@ -3,13 +3,15 @@ class Task
 {
 
     private $description;
+    private $category_id;
     private $id;
 
-    function __construct($description, $id = null)
+    function __construct($description, $id = null, $category_id)
     {
 
         $this->description = $description;
         $this->id = $id;
+        $this->category_id = $category_id;
 
     }
 
@@ -27,9 +29,22 @@ class Task
 
     }
 
-    function save() {
+    function getId()
+    {
+        return $this->id;
 
-        $GLOBALS['DB']->exec("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}');");
+    }
+
+    function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+
+    function save()
+    {
+
+        $statement = $GLOBALS['DB']->exec("INSERT INTO tasks (description, category_id) VALUES ('{$this->getDescription()}', {$this->getCategoryId()})");
         $this->id = $GLOBALS['DB']->lastInsertId();
 
     }
@@ -41,7 +56,8 @@ class Task
         foreach($returned_tasks as $task) {
             $description = $task['description'];
             $id = $task['id'];
-            $new_task = new Task($description, $id);
+            $category_id = $task['category_id'];
+            $new_task = new Task($description, $id, $category_id);
             array_push($tasks, $new_task);
         }
         return $tasks;
@@ -54,10 +70,7 @@ class Task
 
     }
 
-    function getId()
-    {
-        return $this->id;
-    }
+
 
     static function find($search_id)
     {
