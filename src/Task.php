@@ -64,13 +64,11 @@ class Task
 
     }
 
-    static function deleteAll() {
+    static function deleteAll()
+    {
 
         $GLOBALS['DB']->exec("DELETE FROM tasks;");
-
     }
-
-
 
     static function find($search_id)
     {

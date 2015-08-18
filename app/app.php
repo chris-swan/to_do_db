@@ -17,7 +17,6 @@
     ));
 
     $app->get("/", function() use ($app) {
-
         return $app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
     });
 
@@ -36,12 +35,17 @@
         $task = new Task($description, $id = null, $category_id);
         $task->save();
         $category = Category::find($category_id);
-        return $app['twig']->render('category.html.twig', array('cateogry' => $category, 'tasks' => Task::getAll()));
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => Task::getAll()));
     });
 
     $app->post("/delete_tasks", function() use ($app) {
-
         Task::deleteAll();
+        return $app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
+    });
+
+    $app->post("/delete_categories", function() use ($app) {
+        Task::deleteAll();
+        Category::deleteAll();
         return $app['twig']->render('index.html.twig');
     });
 

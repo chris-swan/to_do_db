@@ -25,6 +25,13 @@
         <p>There are no categories yet!</p>
     {% endif %}
 
+    <form action='/delete_tasks' method='post'>
+        <button type='submit'>Clear Tasks</button>
+    </form>
+
+    <form action='/delete_categories' method='post'>
+        <button type='submit'>Clear Tasks AND Categories</button>
+    </form>
 
 
 </body>
