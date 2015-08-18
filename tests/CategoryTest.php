@@ -23,10 +23,10 @@
         {
             //Arrange
             $name = "Work stuff";
-            $test_Category = new Category($name);
+            $test_category = new Category($name);
 
             //Act
-            $result = $test_Category->getName();
+            $result = $test_category->getName();
 
             //Assert
             $this->assertEquals($name, $result);
@@ -37,10 +37,10 @@
             //Arrange
             $name = "Work stuff";
             $id = 1;
-            $test_Category = new Category($name, $id);
+            $test_category = new Category($name, $id);
 
             //Act
-            $result = $test_Category->getId();
+            $result = $test_category->getId();
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
@@ -50,14 +50,14 @@
         {
             //Arrange
             $name = "Work stuff";
-            $test_Category = new Category($name);
-            $test_Category->save();
+            $test_category = new Category($name);
+            $test_category->save();
 
             //Act
             $result = Category::getAll();
 
             //Assert
-            $this->assertEquals($test_Category, $result[0]);
+            $this->assertEquals($test_category, $result[0]);
         }
 
         function test_getAll()
@@ -65,16 +65,16 @@
             //Arrange
             $name = "Work stuff";
             $name2 = "Home stuff";
-            $test_Category = new Category($name);
-            $test_Category->save();
-            $test_Category2 = new Category($name);
-            $test_Category2->save();
+            $test_category = new Category($name);
+            $test_category->save();
+            $test_category2 = new Category($name);
+            $test_category2->save();
 
             //Act
             $result = Category::getAll();
 
             //Assert
-            $this->assertEquals([$test_Category, $test_Category2], $result);
+            $this->assertEquals([$test_category, $test_category2], $result);
         }
 
         function test_deleteAll()
@@ -82,10 +82,10 @@
             //Arrange
             $name = "Wash the dog";
             $name2 = "Home stuff";
-            $test_Category = new Category($name);
-            $test_Category->save();
-            $test_Category2 = new Category($name);
-            $test_Category2->save();
+            $test_category = new Category($name);
+            $test_category->save();
+            $test_category2 = new Category($name);
+            $test_category2->save();
 
             //Act
             Category::deleteAll();
@@ -100,16 +100,16 @@
             //Arrange
             $name = "Wash the dog";
             $name2 = "Home stuff";
-            $test_Category = new Category($name);
-            $test_Category->save();
-            $test_Category2 = new Category($name2);
-            $test_Category2->save();
+            $test_category = new Category($name);
+            $test_category->save();
+            $test_category2 = new Category($name2);
+            $test_category2->save();
 
             //Act
-            $result = Category::find($test_Category->getId());
+            $result = Category::find($test_category->getId());
 
             //Assert
-            $this->assertEquals($test_Category, $result);
+            $this->assertEquals($test_category, $result);
         }
 
         function testGetTask()
@@ -125,6 +125,10 @@
             $description = "Email client";
             $test_task = new Task($description, $id, $test_category_id);
             $test_task->save();
+
+            $description2 = "Meet with boss";
+            $test_task2 = new Task($description2, $id, $test_category_id);
+            $test_task2->save();
 
             //Act
             $result = $test_category->getTasks();

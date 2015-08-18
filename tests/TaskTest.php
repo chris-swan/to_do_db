@@ -56,7 +56,7 @@
             $result = $test_task->getCategoryId();
 
             //Assert
-            $this->assertEquals(true, is_numberic($result));
+            $this->assertEquals(true, is_numeric($result));
         }
 
         function test_save()
@@ -100,7 +100,7 @@
             $result = Task::getAll();
 
             //Assert
-            $this->assertEquals([$test_Task, $test_Task2], $result);
+            $this->assertEquals([$test_task, $test_task2], $result);
 
         }
 
@@ -152,7 +152,7 @@
             $result = Task::find($test_task->getId());
 
             //Assert
-            $this->assertEquals($test_Task, $result);
+            $this->assertEquals($test_task, $result);
         }
     }
 ?>
