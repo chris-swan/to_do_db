@@ -9,26 +9,21 @@ class Task
 
     function __construct($description, $id = null, $category_id, $due_date)
     {
-
         $this->description = $description;
         $this->id = $id;
         $this->category_id = $category_id;
         $this->due_date = $due_date;
-
     }
 
     function setDescription($new_description)
     {
 
         $this->description = (string) $new_description;
-
     }
 
     function getDescription()
     {
-
         return $this->description;
-
     }
 
     function setDueDate($due_date)
@@ -44,7 +39,6 @@ class Task
     function getId()
     {
         return $this->id;
-
     }
 
     function getCategoryId()
@@ -52,13 +46,10 @@ class Task
         return $this->category_id;
     }
 
-
     function save()
     {
-
         $GLOBALS['DB']->exec("INSERT INTO tasks (description, category_id, due_date) VALUES ('{$this->getDescription()}', {$this->getCategoryId()}, '{$this->getDueDate()}');");
         $this->id = $GLOBALS['DB']->lastInsertId();
-
     }
 
     static function getAll() {
@@ -74,7 +65,6 @@ class Task
             array_push($tasks, $new_task);
         }
         return $tasks;
-
     }
 
     static function deleteAll()
