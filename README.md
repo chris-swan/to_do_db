@@ -2,7 +2,7 @@
 
 #### _A To Do app built with Silex, 8/5/2015_
 
-#### By _**Steve Smietana & Charles Moss**_
+#### By _**Kyle Pratucn and Chris Swan**_
 
 ## Description
 An input field accepts a "task" and adds it to a list after confirming it's addition. A "clear" button remove all of the tasks.
@@ -16,7 +16,7 @@ $ composer install
 
 this will pull in what ever packages are used
 
-The start your php server in the todo/web/ dir. 
+The start your php server in the todo/web/ dir.
 
 ## Technologies Used
 Makes use of [Silex](http://silex.sensiolabs.org/) with a focus on Twig templetes.
