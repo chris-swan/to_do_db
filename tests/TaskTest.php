@@ -236,7 +236,8 @@
 
             $description = "File reports";
             $id2 = 2;
-            $test_task = new Task($description, $id2);
+            $due_date = "01-01-2015";
+            $test_task = new Task($description, $id2, $due_date);
             $test_task->save();
 
             //Act
