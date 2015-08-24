@@ -86,7 +86,7 @@ class Task
 
     function delete()
     {
-        $GLOBALS['DB']->exec("DELETE FROM taskss WHERE id = {$this->getId()};");
+        $GLOBALS['DB']->exec("DELETE FROM tasks WHERE id = {$this->getId()};");
     }
 
 }

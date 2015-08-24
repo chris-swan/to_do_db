@@ -136,5 +136,46 @@
             $this->assertEquals($test_task, $result);
         }
 
+        function testUpdate()
+        {
+            //Arrange
+            $description = "Wash the dog";
+            $id = 1;
+            $due_date = "01-01-2015";
+            $test_task = new Task($description, $id, $due_date);
+            $test_task->save();
+
+            $new_description = "Clean the dog";
+
+            //Act
+            $test_task->update($new_description);
+
+            //Assert
+            $this->assertEquals("Clean the dog", $test_task->getDescription());
+        }
+
+        function testDeleteTask()
+        {
+            //Arrange
+            $description = "Wash the dog";
+            $id = null;
+            $due_date = "01-01-2016";
+            $test_task = new Task($description, $id, $due_date);
+            $test_task->save();
+
+            $description2 = "Water the lawn";
+            $id2 = null;
+            $due_date2 = "01-02-2016";
+            $test_task2 = new Task($description2, $id2, $due_date2);
+            $test_task2->save();
+
+
+            //Act
+            $test_task->delete();
+
+            //Assert
+            $this->assertEquals([$test_task2], Task::getAll());
+        }
+
     }
 ?>
