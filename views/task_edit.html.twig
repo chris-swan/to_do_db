@@ -10,8 +10,14 @@
         <form action='/tasks/{{ task.getId }}' method='post'>
             <input name='_method' type='hidden' value='patch'>
 
-            <label for='type'>Edit task:</label>
+            <label for='description'>Edit task:</label>
             <input id='description' name='description' type='text'>
+
+            <label for='status'>Completed?</label>
+            <select id='status' name='status' type='text' value=0>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select>
 
             <button type='submit'>Update</button>
         </form>

@@ -4,24 +4,35 @@ class Task
 
     private $description;
     private $id;
+    private $status;
     // private $due_date;
 
-    function __construct($description, $id = null)
+    function __construct($description, $id = null, $status = 0)
     {
         $this->description = $description;
         $this->id = $id;
+        $this->status = $status;
         // $this->due_date = $due_date;
     }
 
     function setDescription($new_description)
     {
-
         $this->description = (string) $new_description;
     }
 
     function getDescription()
     {
         return $this->description;
+    }
+
+    function setStatus($new_status)
+    {
+        $this->status = $new_status;
+    }
+
+    function getStatus()
+    {
+        return $this->status;
     }
 
     // function setDueDate($due_date)
@@ -41,7 +52,7 @@ class Task
 
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}');");
+        $GLOBALS['DB']->exec("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}', {$this->getStatus()});");
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
@@ -78,10 +89,11 @@ class Task
         return $found_task;
     }
 
-    function update($new_description)
+    function update($new_description, $new_status)
     {
-        $GLOBALS['DB']->exec("UPDATE tasks SET description = '{$new_description}' WHERE id = {$this->getId()};");
+        $GLOBALS['DB']->exec("UPDATE tasks SET description = '{$new_description}', status = {$new_status} WHERE id = {$this->getId()};");
         $this->setDescription($new_description);
+        $this->setStatus($new_status);
     }
 
     function delete()
@@ -114,11 +126,6 @@ class Task
         return $categories;
     }
 
-    /*  function finished {
-        if (finished = true)
-        array_push($finished_tasks, $task)
-        return $finished_tasks
-}*/
 }
 
 ?>
