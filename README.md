@@ -2,7 +2,7 @@
 
 #### _A To Do app built with Silex, 8/5/2015_
 
-#### By _**Kyle Pratucn and Chris Swan**_
+#### By _**Kyle Pratuch and Chris Swan**_
 
 ## Description
 An input field accepts a "task" and adds it to a list after confirming it's addition. A "clear" button remove all of the tasks.
