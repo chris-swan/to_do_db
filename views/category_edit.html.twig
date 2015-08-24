@@ -1,8 +1,10 @@
 <html>
     <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
         <title>Update Category</title>
     </head>
     <body>
+        <div class='container'>
         <h1>Update {{ category.getName }}</h1>
 
         <form action='/categories/{{ category.getId }}' method='post'>
@@ -18,5 +20,6 @@
             <input name='_method' type='hidden' value='delete'>
             <button type='submit'>Delete this category</button>
         </form>
+    </div>
     </body>
 </html>

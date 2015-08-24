@@ -1,8 +1,10 @@
 <html>
     <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
         <title>To Do List</title>
     </head>
     <body>
+        <div class='container'>
         <h1>{{ task.getDescription }}</h1>
 
         {% if categories is not empty %}
@@ -31,5 +33,6 @@
 
 
         <p><a href='/'>Home</a></p>
+    </div>
     </body>
 </html>

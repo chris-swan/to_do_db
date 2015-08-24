@@ -1,8 +1,10 @@
 <html>
     <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
         <title>Update task</title>
     </head>
     <body>
+        <div class='container'>
         <h1>Update {{ task.getDescription }}</h1>
 
         <form action='/tasks/{{ task.getId }}' method='post'>
@@ -17,6 +19,7 @@
         <form action='/tasks/{{ task.getId }}' method='post'>
             <input name='_method' type='hidden' value='delete'>
             <button type='submit'>Delete this task</button>
-        </form>    
+        </form>
+    </div>
     </body>
 </html>
