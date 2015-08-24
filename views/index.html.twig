@@ -8,34 +8,8 @@
     <div class='container'>
     <h1>Welcome to To Do List</h1>
 
-    <h2>Create a new category:</h2>
-
-    <form action="/categories" method="post">
-        <div class='form-group'>
-        <label class="glow" for="name">Category name:</label>
-        <input id="name" name="name" type="text">
-        </div>
-        <button type="submit" class='btn btn-warning btn-lg'>Add category</button>
-    </form>
-
-    {% if categories is not empty %}
-        <p>Here are all your categories:</p>
-        <ul>
-            {% for category in categories %}
-                <li><a href="/categories/{{ category.getId }}" role='button' class='btn btn-default'>{{ category.getName }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no categories yet!</p>
-    {% endif %}
-
-    <form action='/delete_tasks' method='post'>
-        <button type='submit' class='btn btn-warning btn-lg'>Clear Tasks</button>
-    </form>
-
-    <form action='/delete_categories' method='post'>
-        <button type='submit' class='btn btn-danger btn-lg'>Clear Tasks AND Categories</button>
-    </form>
+    <h3><a href='/categories'>Add or view a category</a></h3>
+    <h3><a href='/tasks'>Add or view a task</a></h3>
 
     </div>
 </body>
