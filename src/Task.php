@@ -113,6 +113,12 @@ class Task
         }
         return $categories;
     }
+
+    /*  function finished {
+        if (finished = true)
+        array_push($finished_tasks, $task)
+        return $finished_tasks
+}*/
 }
 
 ?>
